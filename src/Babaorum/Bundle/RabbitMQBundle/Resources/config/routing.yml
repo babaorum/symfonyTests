@@ -1,0 +1,7 @@
+babaorum_rabbit_mq_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: BabaorumRabbitMQBundle:Main:index }
+
+babaorum_rabbit_mq_produce:
+    path:     /rabbit/{message}
+    defaults: { _controller: BabaorumRabbitMQBundle:Main:produce }

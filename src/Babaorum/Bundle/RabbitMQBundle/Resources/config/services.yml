@@ -1,0 +1,4 @@
+services:
+    babaorum_rabbit_mq.message_deliver:
+        class: Babaorum\Bundle\RabbitMQBundle\Service\MessageDeliver
+        arguments: ["@logger"]

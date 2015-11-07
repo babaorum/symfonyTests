@@ -1,0 +1,4 @@
+babaorum_rabbit_mq:
+    resource: "@BabaorumRabbitMQBundle/Resources/config/routing.yml"
+    prefix:   /
+
