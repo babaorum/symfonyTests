@@ -15,11 +15,9 @@ class MainController extends Controller
 
     public function produceAction($message)
     {
-$test =
-        $this->get('old_sound_rabbit_mq.message_deliver_producer')->setContentType('application/json')
-// ;
-// die(dump($test));
-           ->publish(json_encode(['messageData' => $message]));
+        $this->get('old_sound_rabbit_mq.message_sender_producer')
+            ->setContentType('application/json')
+            ->publish(json_encode(['messageData' => $message]));
 
         die('Done Man !');
     }

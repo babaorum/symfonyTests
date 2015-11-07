@@ -10,7 +10,7 @@ use PhpAmqpLib\Message\AMQPMessage;
 /**
 * Test RabbitMQ bundle with service MessageDeliver
 */
-class MessageDeliver implements ConsumerInterface
+class MessageLogger implements ConsumerInterface
 {
     /**
      * @var Logger
@@ -30,11 +30,10 @@ class MessageDeliver implements ConsumerInterface
      */
     public function execute(AMQPMessage $msg)
     {
-        // Process picture upload
-        // $msg will be an install of PhpAmqpLib\Message\AMQPMessage with the $msg->body
-
         $msgBody = json_decode($msg->body, true);
-        $this->logger->info('RabbitMQ test ::'.$msgBody['messageData']);
+
+        // Log as error to also print it in console when running consumer
+        $this->logger->error('RabbitMQ message_logger :: '.$msgBody['messageData']);
         return true;
     }
 }
